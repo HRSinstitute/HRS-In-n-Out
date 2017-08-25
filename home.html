@@ -29,8 +29,34 @@
 	<div id="content" style="margin:5%;margin-top: 1%;padding:10px;"> 
 		
 		<p style= "font-family: -webkit-pictograph;font-variant: normal;font-size: 20px;"> <i> Administrator Webpage for HRS In n Out </i> </p>
-		
 		<br/> 
+		<br/> 
+		
+		<h2 id="datadisplay"></h2>
+		
+		
+// Initialize Firebase
+
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBqndtT8aN3YH7nNuxkkEK8IBAhvyFDPYw",
+    authDomain: "the-head-royce-app.firebaseapp.com",
+    databaseURL: "https://the-head-royce-app.firebaseio.com",
+    projectId: "the-head-royce-app",
+    storageBucket: "the-head-royce-app.appspot.com",
+    messagingSenderId: "975929388896"
+  };
+  firebase.initializeApp(config);
+	
+  var datadisplay = document.getElementById('datadisplay');
+  var dbRef = firebase.database().ref().child('text');
+  dbRef.on('value', snap => datadisplay.innerText = snap.val());
+	
+	
+	
+</script>	
 		
 	
 	<br/> 
