@@ -49,7 +49,7 @@
   firebase.initializeApp(config);
 	
   var datadisplay = document.getElementById('datadisplay');
-  var dbRef = firebase.database().ref().child('text');
+  var dbRef = firebase.database().ref().child('students');
   dbRef.on('value', snap => datadisplay.innerText = snap.val());
 	
 	
