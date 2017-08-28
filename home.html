@@ -48,14 +48,20 @@
     projectId: "the-head-royce-app",
     storageBucket: "the-head-royce-app.appspot.com",
     messagingSenderId: "975929388896"
-  };
+  }
   firebase.initializeApp(config);
 	
-  var datadisplay = document.getElementById('datadisplay');
-  var dbRef = firebase.database().ref().child('text');
+	
+	//const's
+  const datadisplay = document.getElementById('datadisplay');
+  const dbRef = firebase.database().ref().child('students');
+	
+	//sync changes
   dbRef.on('value', snap => datadisplay.innerText = snap.val());
+  dbRef.on('value', snap => datadisplay.log(snap.val()));
 	
 	
+	var student = snap.val();
 	
 </script>	
 		
