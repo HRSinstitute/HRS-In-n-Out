@@ -55,7 +55,7 @@
 	
 	//const's
   const datadisplayObject = document.getElementById('object');
-  const dbRefObject = firebase.database().ref().child('object');
+  const dbRefObject = firebase.database().ref().child('students');
 	
 	//sync changes
   dbRefObject.on('value', snap => {
