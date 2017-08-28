@@ -58,11 +58,11 @@
   const dbRef = firebase.database().ref().child('students');
 	
 	//sync changes
-  dbRef.on('value', snap => datadisplay.innerText = snap.val());
+ // dbRef.on('value', snap => datadisplay.innerText = snap.val());
   dbRef.on('value', snap => datadisplay.log(snap.val()));
 	
 	
-	var student = snap.val();
+//	var student = snap.val();
 	
 	}());
 </script>	
