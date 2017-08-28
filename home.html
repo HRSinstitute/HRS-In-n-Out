@@ -59,7 +59,7 @@
 	
 	//sync changes
   dbRefObject.on('value', snap => {
-	  datadisplayObject.innerText = JSON.stgringify(snap.val, null, 3);
+	  datadisplayObject.innerText = JSON.stringify(snap.val, null, 3);
   });
 	
 	
