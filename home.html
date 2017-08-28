@@ -54,12 +54,12 @@
 	
 	
 	//const's
-  const datadisplay = document.getElementById('datadisplay');
-  const dbRef = firebase.database().ref().child('students');
+  const datadisplayObject = document.getElementById('object');
+  const dbRefObject = firebase.database().ref().child('students');
 	
 	//sync changes
-  dbRefObject.on('value', snap => datadisplay.innerText = snap.val());
-  dbRefObject.on('value', snap => datadisplay.log(snap.val()));
+  dbRefObject.on('value', snap => datadisplayObject.innerText = snap.val());
+  dbRefObject.on('value', snap => console.log(snap.val()));
 	
 	
 //	var student = snap.val();
