@@ -58,13 +58,13 @@
   const dbRefObject = firebase.database().ref().child('object');
 	
 	//sync changes
-  //dbRefObject.on('value', snap => console.log(snap.val()));
   dbRefObject.on('value', snap => {
 	  datadisplayObject.innerText = JSON.stgringify(snap.val, null, 3);
   });
 	
 	
 //	var student = snap.val();
+		//dbRefObject.on('value', snap => console.log(snap.val()));
 	
 	}());
 </script>	
