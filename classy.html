@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <style type="text/css">
+    body{
+      background-color: #e6f7ff;
+    }
+    div#monday {
+      font: Times;
+      font-size: 40px;
+      color: black;
+      text-align: center;
+      padding-bottom: 2ex
+    }
+
+    div.courseTime.selected{
+      color: darkred;
+
+    }
+
+    div.courseTime {
+      font: Times;
+      font-size: 30px;
+      color: gray;
+
+      padding-bottom: 10px;
+      text-align: center;
+    }
+
+    #clock {
+      font: Times;
+      font-size: 2em;
+      color: darkred;
+      border-style: double;
+      border-color: grey;
+    }
+  </style>
+  <title> HRS Schedule Classy </title>
+</head>
+
+<body onload="updateClock(); setInterval('updateClock()', 1000 )" >
+  <div style="clear: both;"> </div>
+
+  <div style="width: 15em; text-align: center; margin: 20px auto;">
+    <span id="clock">&nbsp;</span>
+  </div>
+  <div id="monday">
+    Monday
+  </div>
+  <div id="a" class="courseTime">
+    A Block: 8:25-9:10
+  </div>
+  <div id="b" class="courseTime">
+    B Block: 9:15-10:00
+  </div>
+  <div id="mm" class="courseTime">
+    Morning Meeting: 10:05-10:20
+  </div>
+  <div id="c" class="courseTime">
+    C Block: 10:25-11:20
+  </div>
+  <div id="d" class="courseTime">
+    D Block: 11:15-12:00
+  </div>
+  <div id="lunch" class="courseTime">
+    Lunch: 12:00-12:50
+  </div>
+  <div id="e" class="courseTime">
+    E Block: 12:55-1:40
+  </div>
+  <div id="f" class="courseTime">
+    F Block: 1:45-2:30
+  </div>
+  <div id="g" class="courseTime">
+    G Block: 2:35-3:20
+  </div>
+
+  <script type="text/javascript">
+    function highlighta (){
+      var currentTime = new Date();
+      var start = new Date(currentTime.getYear(), currentTime.getMonth(), currentTime.getDay(), 8, 25, 0, 0);
+      var end = new Date(currentTime.getYear(), currentTime.getMonth(), currentTime.getDay(), 9, 10, 0, 0);
+      let block = document.getElementById("a");
+
+      if (currentTime > start && currentTime < end){
+
+        block.classList.add("selected");
+        console.log( block.classList)
+      }
+      else {
+        block.classList.remove("selected");
+      }
+
+    }
+
+    function highlightb (){
+      var currentTime = new Date();
+
+      var start = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 9, 15, 0);
+      var end = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 10, 0, 0);
+      let block = document.getElementById("b");
+
+      if (currentTime > start && currentTime < end){
+        console.log( block.classList)
+
+        block.classList.add("selected");
+        console.log( block.classList)
+      }
+      else {
+        block.classList.remove("selected");
+      }
+    }
+
+    function highlightmm (){
+      var currentTime = new Date();
+
+      var start = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 10, 5, 0);
+      var end = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 10, 20, 0);
+      let block = document.getElementById("mm");
+
+      if (currentTime > start && currentTime < end){
+        console.log( block.classList)
+
+        block.classList.add("selected");
+        console.log( block.classList)
+      }
+      else {
+        block.classList.remove("selected");
+      }
+    }
+
+    function highlightc (){
+      var currentTime = new Date();
+
+      var start = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 10, 25, 0);
+      var end = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 11, 10, 0);
+      let block = document.getElementById("c");
+
+      if (currentTime > start && currentTime < end){
+        console.log( block.classList)
+
+        block.classList.add("selected");
+        console.log( block.classList)
+      }
+      else {
+        block.classList.remove("selected");
+      }
+    }
+
+    function highlightd (){
+      var currentTime = new Date();
+
+      var start = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 11, 15, 0);
+      var end = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 12, 0, 0);
+      let block = document.getElementById("d");
+
+      if (currentTime > start && currentTime < end){
+        console.log( block.classList)
+
+        block.classList.add("selected");
+        console.log( block.classList)
+      }
+      else {
+        block.classList.remove("selected");
+      }
+    }
+
+    function highlightlunch (){
+      var currentTime = new Date();
+
+      var start = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 12, 0, 0);
+      var end = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 12, 50, 0);
+      let block = document.getElementById("lunch");
+
+      if (currentTime > start && currentTime < end){
+        console.log( block.classList)
+
+        block.classList.add("selected");
+        console.log( block.classList)
+      }
+      else {
+        block.classList.remove("selected");
+      }
+    }
+
+    function highlighte (){
+      var currentTime = new Date();
+
+      var start = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 12, 55, 0);
+      var end = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 13, 40, 0);
+      let block = document.getElementById("e");
+
+      if (currentTime > start && currentTime < end){
+        console.log( block.classList)
+
+        block.classList.add("selected");
+        console.log( block.classList)
+      }
+      else {
+        block.classList.remove("selected");
+      }
+    }
+
+    function highlightf (){
+      var currentTime = new Date();
+
+      var start = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 13, 45, 0);
+      var end = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 14, 30, 0);
+      let block = document.getElementById("f");
+
+      if (currentTime > start && currentTime < end){
+        console.log( block.classList)
+
+        block.classList.add("selected");
+        console.log( block.classList)
+      }
+      else {
+        block.classList.remove("selected");
+      }
+    }
+
+    function highlightg (){
+      var currentTime = new Date();
+
+      var start = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 14, 35, 0);
+      var end = new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), 15, 20, 0);
+      let block = document.getElementById("g");
+
+      if (currentTime > start && currentTime < end){
+        console.log( block.classList)
+
+        block.classList.add("selected");
+        console.log( block.classList)
+      }
+      else {
+        block.classList.remove("selected");
+      }
+    }
+
+    function init() {
+      timeDisplay = document.createTextNode("");
+      document.getElementById("clock").appendChild(timeDisplay);
+
+      updateClock();
+      setInterval( updateClock, 1000);
+      highlighta();
+      highlightb();
+      highlightmm();
+      highlightc();
+      highlightd();
+      highlightlunch();
+      highlighte();
+      highlightf();
+      highlightg();
+    }
+
+    function updateClock() {
+      var currentTime = new Date();
+      var currentHours = currentTime.getHours();
+      var currentMinutes = currentTime.getMinutes();
+      var currentSeconds = currentTime.getSeconds();
+      currentMinutes = (currentMinutes < 10 ? "0" : "") + currentMinutes;
+      currentSeconds = (currentSeconds < 10 ? "0" : "") + currentSeconds;
+      var timeOfDay = (currentHours < 12) ? "AM" : "PM";
+      currentHours = (currentHours > 12) ? currentHours - 12 : currentHours;
+      currentHours = (currentHours == 0) ? 12 : currentHours;
+      var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+      document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+    }
+
+    window.onload = init;
+  </script>
+
+</body>
+
+</html>

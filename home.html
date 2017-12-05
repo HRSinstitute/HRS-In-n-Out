@@ -2,6 +2,7 @@
 <html>
 
 	<head>
+	<meta charset="utf-8"/>
 	<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 		<title>HRS In-n-Out Admin</title>
@@ -9,10 +10,10 @@
 
 
 	<!-- Google Analytics-->
-	<script> 
+	<script>
 	</script>
-		
-		
+
+
 	</head>
 
 
@@ -20,20 +21,30 @@
 
 
 <body>
-	<div id="header">		
-<h1>HRS In-n-Out Data</h1>	
-</div>	
+	<div id="header">
+<h1>HRS In-n-Out Admin</h1>
+</div>
 	<div id="wrapper">
-		
-		
-	<div id="content" style="margin:5%;margin-top: 1%;padding:10px;"> 
-		
+
+
+	<div id="content" style="margin:5%;margin-top: 1%;padding:10px;">
+
+		<!--
 		<p style= "font-family: -webkit-pictograph;font-variant: normal;font-size: 20px;"> <i> Administrator Webpage for HRS In-n-Out </i> </p>
-		<br/> 
-		<br/> 
-		
+		-->
+		<br/>
+		<br/>
+
 		<p id="datadisplay"></p>
-	
+		<table id="table">
+			<tr>
+    		<th>&nbsp; Name &nbsp;</th>
+    		<th> &nbsp; Grade &nbsp; </th>
+				<th> &nbsp; Time Out &nbsp; </th>
+				<th> &nbsp; Reason &nbsp; </th>
+				<th> &nbsp; Time Returned &nbsp; </th>
+  		</tr>
+		</table>
 		<br />
 	</div>
 	</div>
@@ -51,30 +62,65 @@
     messagingSenderId: "975929388896"
   };
   firebase.initializeApp(config);
-	
-	
+
+
 	//const's
   const datadisplayObject = document.getElementById('datadisplay');
   const dbRefObject = firebase.database().ref().child('students');
-	
+
 	//sync changes
   dbRefObject.on('value', snap => {
-	  datadisplayObject.innerText = JSON.stringify(snap.val(), null, 3);
+		let vals = snap.val();
+		let jarray = []
+
+		for( obj in vals ) {
+			vals[obj].name = obj;
+			jarray.push( vals[obj]);
+		}
+
+		let table = document.getElementById('table');
+		for(obj of jarray){
+			let person = document.createElement('tr');
+			let name = document.createElement('td');
+			name.innerText = obj.name;
+			let grade = document.createElement('td');
+			grade.innerText = obj.grade;
+			let timeOut = document.createElement('td');
+			timeOut.innerText = obj.time;
+			let reason = document.createElement('td');
+			reason.innerText = obj.reason;
+			let timeReturned = document.createElement('td');
+			timeReturned.innerText = obj.status;
+			person.appendChild(name);
+			person.appendChild(grade);
+			person.appendChild(timeOut);
+			person.appendChild(reason);
+			person.appendChild(timeReturned);
+			table.appendChild(person);
+		}
+
+		/* let htmlofjson = "<h1> Current Students Signed In / Out </h1> ";
+
+		for (let i = 0; i < jsonarray.length; i++) {
+        htmlofjson += '<p> '  + 'Name: ' + jsonarray.Students[i] + ' </p>';//' | ' + 'Grade: '  + json[i].grade + ' | ' + 'Time: ' + json[i].time + ' </p>';
+      } */
+		//datadisplayObject.innerHTML = htmlofjson;
+
   });
-	
-	
+
+
 //	var student = snap.val();
-dbRefObject.on('value', snap => console.log(snap.val()));
-	
+//dbRefObject.on('value', snap => console.log(snap.val()));
+
 	}());
-</script>	
-		
-	
-	<div id ="footer">  
-	<a href="mailto:iteuscher@headroyce.org?Subject=Feedback%20about%20'HRS%20In-n-Out'" target="_top"> Issues or Feedback? </a>
+</script>
+
+
+	<div id ="footer">
+	<a href="index.html"> Sign Out </a> <a href="mailto:iteuscher@headroyce.org?Subject=Feedback%20about%20'HRS%20In-n-Out'" target="_top"> Issues or Feedback? </a>
 	</div>
-	
-	
+
+
 </body
 
 </html>
